@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include('partials/encabezado.html')%>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="/detalles" method="post">
+                    <div class="mb-3">
+                        <label for="numRecibo" class="form-label">Numero Recibo</label>
+                        <input type="text" class="form-control" aria-describedby="Numero de recibo"  name="numRecibo" id="numRecibo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" aria-describedby="Nombre"  name="nombre" id="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="domicilio" class="form-label">Domicilio</label>
+                        <input type="text" class="form-control" aria-describedby="Domicilio"  name="domicilio" id="domicilio">
+                    </div>
+
+                    <div class="mb-3">
+                        <select class="form-select" aria-label="Selector de tipo" name="tipoConsumo" id="tipoConsumo">
+                            <option selected>Seleccione un tipo de consumo</option>
+                            <option value="1">Domestico</option>
+                            <option value="2">Comercial</option>
+                            <option value="3">Industrial</option>
+                          </select>
+                        
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="kwConsumidos" class="form-label">Kilowatts Consumidos</label>
+                        <input type="text" class="form-control" aria-describedby="Kilowatts consumidos"  name="kwConsumidos" id="kwConsumidos">
+                    </div>
+
+                    <!-- Bootstrap button to submit and one to clear the form -->
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-danger">Limpiar</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    
+    
+    <%-include('partials/footer.html')%>
+</body>
+</html>

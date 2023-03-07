@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include('partials/encabezado.html')%>
+
+<body>
+    
+    <div class="container">
+        <div class="row">
+            
+
+            <%
+            var costo = 0
+            var precio = 0
+            var subtotal = 0
+
+            if(tipoConsumo == 1){
+                costo = 1.08
+            }else if(tipoConsumo == 2){
+                costo = 2.5
+            }else if(tipoConsumo == 3){
+                costo = 3.0
+            }
+
+            subtotal = kwConsumidos * costo
+
+            if(kwConsumidos < 1000){
+                precio = (subtotal * 1.16)*0.9
+            }else if(kwConsumidos >= 1000 && kwConsumidos < 10000){
+                precio = (subtotal * 1.16)*0.8
+            }else if(kwConsumidos >= 10000){
+                precio = (subtotal * 1.16)*0.5
+            }
+
+            %>
+
+            <div class="col-md-3">
+                <h3>Nombre</h3>
+                <p><%=nombre%></p>
+            </div>
+            <div class="col-md-3">
+                <h3>Tipo de consumo</h3>
+                <p><%=tipoConsumo%></p>
+            </div>
+            <div class="col-md-3">
+                <h3>Kilowatts consumidos</h3>
+                <p><%=kwConsumidos%></p>
+            </div>
+            <div class="col-md-3">
+                <h3>Costo por Kilowatts</h3>
+                <p><%=precio%></p>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+    
+    <%-include('partials/footer.html')%>
+</body>
+</html>
