@@ -12,45 +12,82 @@
             var costo = 0
             var precio = 0
             var subtotal = 0
+            var kilos = kwConsumidos
 
             if(tipoConsumo == 1){
                 costo = 1.08
+                kilos = kilos * 1.08
             }else if(tipoConsumo == 2){
                 costo = 2.5
+                kilos = kilos * 2.5
             }else if(tipoConsumo == 3){
+                kilos = kilos * 3.0
                 costo = 3.0
             }
 
-            subtotal = kwConsumidos * costo
+            subtotal = kilos
+            impuesto =subtotal*0.16;
 
-            if(kwConsumidos < 1000){
-                precio = (subtotal * 1.16)*0.9
-            }else if(kwConsumidos >= 1000 && kwConsumidos < 10000){
-                precio = (subtotal * 1.16)*0.8
-            }else if(kwConsumidos >= 10000){
-                precio = (subtotal * 1.16)*0.5
+            if(kilos < 1000){
+                descuento=0.1;
+            }else if(kilos >= 1000 && kilos < 10000){
+                descuento=0.2;
+            }else if(kilos >= 10000){
+                descuento=0.5;
             }
+
+            var descontado= subtotal*descuento;
+            var total= subtotal+Number(subtotal*0.16)-Number(subtotal*descuento);
 
             %>
 
             <div class="col-md-3">
                 <h3>Nombre</h3>
-                <p><%=nombre%></p>
+
             </div>
             <div class="col-md-3">
                 <h3>Tipo de consumo</h3>
-                <p><%=tipoConsumo%></p>
+  
             </div>
             <div class="col-md-3">
                 <h3>Kilowatts consumidos</h3>
-                <p><%=kwConsumidos%></p>
+              
             </div>
             <div class="col-md-3">
                 <h3>Costo por Kilowatts</h3>
-                <p><%=precio%></p>
+                
+
             </div>
             
             
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+         
+                <p><%=nombre%></p>
+            </div>
+            <div class="col-md-3">
+     
+                <p><%=tipoConsumo%></p>
+            </div>
+            <div class="col-md-3">
+             
+                <p><%=kwConsumidos%></p>
+                <p>Subtotal:</p>
+                <p>Impuesto:</p>
+                <p>Descuento:</p>
+                <p>Total a Pagar:</p>
+            </div>
+            <div class="col-md-3">
+     
+                <p><%=costo%></p>
+                <p><%=subtotal%></p>
+                <p><%=impuesto%></p>
+                <p><%=descontado%></p>
+                <p><%=total%></p>
+
+            </div>
+
         </div>
     </div>
     
